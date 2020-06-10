@@ -5,14 +5,17 @@ export const Page = () => {
   const { getUserAccessToken, isAuthed, error, fetchData } = useSpotityAPI();
   const redirectUri = "http://lvh.me:3000/";
   const clientId = process.env.REACT_APP_CLIENT_ID;
+  const scope = "user-read-recently-played"; // https://developer.spotify.com/documentation/general/guides/scopes
 
   const [searchInputValue, setSearchInputValue] = useState("");
   const [searchResults, setSearchResults] = useState();
   const [selectedSong, setSelectedSong] = useState();
   const [selectedSongInfo, setSelectedSongInfo] = useState();
+  const [trackHistory, setTrackHistory] = useState();
 
   !!searchResults && console.log("Search results:", searchResults);
   !!selectedSongInfo && console.log("Song info:", selectedSongInfo);
+  !!trackHistory && console.log("Track history:", trackHistory);
 
   if (!clientId)
     return (
@@ -38,7 +41,7 @@ export const Page = () => {
   else if (!isAuthed)
     return (
       <>
-        <button onClick={() => getUserAccessToken({ redirectUri })}>
+        <button onClick={() => getUserAccessToken({ redirectUri, scope })}>
           Auth
         </button>
       </>
@@ -46,7 +49,7 @@ export const Page = () => {
   else
     return (
       <>
-        <button onClick={() => getUserAccessToken({ redirectUri })}>
+        <button onClick={() => getUserAccessToken({ redirectUri, scope })}>
           Reauth
         </button>
         <input
@@ -74,6 +77,15 @@ export const Page = () => {
         >
           Get song info
         </button>
+        <button
+          onClick={() => {
+            fetchData(`me/player/recently-played?limit=50`).then((data) =>
+              setTrackHistory(data)
+            );
+          }}
+        >
+          Get your track history
+        </button>
         <a href="https://developer.spotify.com/documentation/web-api/reference/">
           API endpoints reference
         </a>
@@ -88,7 +100,8 @@ export const Page = () => {
               );
             })}
         </div>
-        {!!selectedSongInfo && <p>View console logs for song info</p>}
+        {!!selectedSongInfo && <h3>View console logs for song info</h3>}
+        {!!trackHistory && <h3>View console logs for your track history</h3>}
       </>
     );
 };
