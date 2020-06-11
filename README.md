@@ -1,3 +1,9 @@
+# spotify-api-app-template
+
+A template to get you up and running with the spotify api in no time
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Quick start guide
