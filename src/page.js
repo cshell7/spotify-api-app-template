@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSpotityAPI } from "./hooks/use-spotify-api";
+import { useSpotityAPI } from "@c-shell/spotify-api-hook";
 
 export const Page = () => {
   const { getUserAccessToken, isAuthed, error, fetchData } = useSpotityAPI();
