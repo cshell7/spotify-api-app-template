@@ -1,6 +1,7 @@
 {
   "name": "spotify-test",
   "version": "0.1.0",
+  "description": "A template to get you up and running with the spotify api in no time",
   "private": true,
   "dependencies": {
     "@c-shell/spotify-api-hook": "^1.0.0",
