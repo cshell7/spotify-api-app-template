@@ -13,8 +13,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. Run 'npm start'
 1. Go to http://lvh.me:3000/
 1. Play around with the api and have fun!
-
-- Playlist analizer: tempo, top artists.
-- Advanced search, search by artist, song name or category and show song analisis next to it. click a song to open it in the app.
-- Analize year/week, by hour, by day, work days, weekend. How was your week? Option to save results(download and save to localstorage)
-- See who your favorite is based on your top tracks and artists
