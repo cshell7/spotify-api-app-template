@@ -1,9 +1,10 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import cookies from "js-cookie";
-
-import { parseQueryString } from "../utils/parse-query-string";
-import { objectToQueryParamString } from "../utils/object-to-query-param-string";
+import {
+  parseQueryString,
+  objectToQueryParamString,
+} from "utils-url-query-params";
 
 const SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize";
 
