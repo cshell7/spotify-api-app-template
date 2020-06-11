@@ -1,5 +1,5 @@
 {
-  "name": "spotify-test",
+  "name": "spotify-api-app-template",
   "version": "0.1.0",
   "description": "A template to get you up and running with the spotify api in no time",
   "private": true,
